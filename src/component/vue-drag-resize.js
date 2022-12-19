@@ -299,7 +299,7 @@ export default {
                 } else if (this.axis === 'none') {
                     return;
                 }
-                this.bodyMove(delta);
+                this.bodyMove(delta, ev);
             }
         },
 
@@ -364,7 +364,7 @@ export default {
             }
         },
 
-        bodyMove(delta) {
+        bodyMove(delta, ev) {
             const {
                 dimensionsBeforeMove,
                 parentWidth,
@@ -426,7 +426,7 @@ export default {
                 newBottom: this.bottom,
             } = this.rectCorrectionByLimit({ newLeft, newRight, newTop, newBottom }));
 
-            this.$emit('dragging', this.rect);
+            this.$emit('dragging', this.rect, ev);
         },
 
         bodyUp() {
